@@ -9,13 +9,13 @@ interface EditorCanvasProps {
   selectedElementId?: string;
 }
 
-const EditorCanvas: React.FC<EditorCanvasProps> = ({ 
-  elements, 
-  onSelectElement, 
-  selectedElementId 
+const EditorCanvas: React.FC<EditorCanvasProps> = ({
+  elements,
+  onSelectElement,
+  selectedElementId
 }) => {
   const { addElement, previewMode } = useStore();
-  
+
   // Function to add a new element at a specific position
   const handleAddAtPosition = (index: number) => {
     // Show a popup to select component type or use a default
@@ -43,14 +43,14 @@ const EditorCanvas: React.FC<EditorCanvasProps> = ({
         <div className="p-2 border-b border-gray-200 bg-gray-50 flex justify-center">
           <button
             onClick={() => addElement('heading', undefined, 0)}
-            className="flex items-center px-3 py-1 text-xs font-medium text-gray-600 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+            className="flex items-center px-3 py-1 cursor-pointer text-xs font-medium text-gray-600 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
           >
             <FiPlus className="mr-1" size={12} />
             Add at top
           </button>
         </div>
       )}
-      
+
       {elements.map((element, index) => (
         <React.Fragment key={element.id}>
           <RenderElement
@@ -59,14 +59,14 @@ const EditorCanvas: React.FC<EditorCanvasProps> = ({
             isSelected={element.id === selectedElementId}
             isPreview={previewMode}
           />
-          
+
           {!previewMode && (
             <div className="flex justify-center my-1">
               <button
                 onClick={() => handleAddAtPosition(index + 1)}
-                className="flex items-center px-2 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-full hover:bg-gray-200"
+                className="flex items-center px-2 py-1 text-xs cursor-pointer font-medium text-gray-500 bg-gray-100 rounded-full hover:bg-red-200"
               >
-                <FiPlus size={10} />
+                <FiPlus size={15} />
               </button>
             </div>
           )}

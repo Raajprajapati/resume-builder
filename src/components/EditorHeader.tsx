@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiEye, FiDownload, FiSave } from 'react-icons/fi';
+import { FiEye, FiDownload } from 'react-icons/fi';
 
 interface EditorHeaderProps {
   onPreview: () => void;

@@ -155,6 +155,8 @@ const RenderElement: React.FC<RenderElementProps> = ({
                 );
             case 'divider':
                 return <hr />;
+            case 'link':
+                return <a href={element.props?.url}> {element.content}</a>;
             default:
                 return <div>{element.content}</div>;
         }
@@ -178,25 +180,25 @@ const RenderElement: React.FC<RenderElementProps> = ({
             className={`relative ${isSelected ? 'ring-2 ring-indigo-500 ring-opacity-50' : ''} ${isDragging ? 'opacity-50' : ''}`}
         >
             {!isPreview && (
-                <div className="absolute -top-3 right-0 flex space-x-1 bg-white border border-gray-200 rounded-md shadow-sm z-10">
+                <div className="absolute -top-3 right-1/2 flex space-x-1 bg-white border border-gray-200 rounded-md shadow-sm z-10">
                     <button
                         {...attributes}
                         {...listeners}
-                        className="p-1 text-gray-500 hover:text-gray-700"
+                        className="p-1 cursor-grab text-gray-500 hover:text-blue-700"
                         title="Move"
                     >
                         <FiMove size={12} />
                     </button>
                     <button
                         onClick={handleEdit}
-                        className="p-1 text-gray-500 hover:text-gray-700"
+                        className="p-1 cursor-pointer text-gray-500 hover:text-blue-700"
                         title="Edit"
                     >
                         <FiEdit2 size={12} />
                     </button>
                     <button
                         onClick={handleDelete}
-                        className="p-1 text-gray-500 hover:text-red-500"
+                        className="p-1 cursor-pointer text-gray-500 hover:text-red-500"
                         title="Delete"
                     >
                         <FiTrash2 size={12} />

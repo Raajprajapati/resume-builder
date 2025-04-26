@@ -76,18 +76,19 @@ const ElementStyles: React.FC<ElementStylesProps> = ({ element }) => {
 
                     <div>
                         <label className="block text-xs text-gray-500 mb-1">Color</label>
-                        <div className="flex">
+                        <div className="flex border border-gray-300 rounded items-center gap-x-1">
                             <input
                                 type="color"
                                 value={element.styles.color || '#000000'}
                                 onChange={(e) => handleStyleChange('color', e.target.value)}
-                                className="w-8 h-8 p-0 border border-gray-300 rounded-l"
+                                className="w-full p-0 ml-1 min-h-full"
                             />
                             <input
                                 type="text"
                                 value={element.styles.color || ''}
                                 onChange={(e) => handleStyleChange('color', e.target.value)}
-                                className="flex-1 p-2 border border-gray-300 border-l-0 rounded-r text-sm"
+                                style={{ maxWidth: '100px' }}
+                                className="flex-1 p-2 border-gray-300 text-sm"
                                 placeholder="#000000"
                             />
                         </div>
@@ -135,18 +136,19 @@ const ElementStyles: React.FC<ElementStylesProps> = ({ element }) => {
                 <div className="grid grid-cols-2 gap-3">
                     <div>
                         <label className="block text-xs text-gray-500 mb-1">Background</label>
-                        <div className="flex">
+                        <div className="flex border border-gray-300 rounded items-center gap-x-1">
                             <input
                                 type="color"
                                 value={element.styles.backgroundColor || '#ffffff'}
                                 onChange={(e) => handleStyleChange('backgroundColor', e.target.value)}
-                                className="w-8 h-8 p-0 border border-gray-300 rounded-l"
+                                className="w-full p-0 ml-1 min-h-full"
                             />
                             <input
                                 type="text"
                                 value={element.styles.backgroundColor || ''}
+                                style={{ maxWidth: '100px' }}
                                 onChange={(e) => handleStyleChange('backgroundColor', e.target.value)}
-                                className="flex-1 p-2 border border-gray-300 border-l-0 rounded-r text-sm"
+                                className="flex-1 p-2 border-gray-300 text-sm"
                                 placeholder="#ffffff"
                             />
                         </div>
@@ -203,6 +205,16 @@ const ElementStyles: React.FC<ElementStylesProps> = ({ element }) => {
                         <FiCornerDownRight className="mr-2" />
                         Image Properties
                     </h4>
+                    <div className="mb-2">
+                        <label className="block text-xs text-gray-500 mb-1">Image URL</label>
+                        <input
+                            type="text"
+                            value={element.props?.src || ''}
+                            onChange={(e) => handlePropChange('src', e.target.value)}
+                            className="w-full p-2 border border-gray-300 rounded text-sm"
+                            placeholder="Image link or source"
+                        />
+                    </div>
 
                     <div className="mb-2">
                         <label className="block text-xs text-gray-500 mb-1">Alt Text</label>

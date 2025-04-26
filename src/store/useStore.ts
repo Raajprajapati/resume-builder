@@ -9,7 +9,8 @@ export type ElementType =
     | 'columns'
     | 'list'
     | 'button'
-    | 'divider';
+    | 'divider'
+    | 'link';
 
 export interface Element {
     id: string;
@@ -250,6 +251,7 @@ function getDefaultContent(type: ElementType): string {
         case 'list': return 'Item 1\nItem 2\nItem 3';
         case 'button': return 'Button';
         case 'divider': return '';
+        case 'link': return 'example.com'
         default: return '';
     }
 }
@@ -265,6 +267,8 @@ function getDefaultStyles(type: ElementType): Record<string, string> {
             return { ...baseStyles, fontSize: '2rem', fontWeight: 'bold' };
         case 'paragraph':
             return { ...baseStyles, fontSize: '1rem' };
+        case 'link':
+            return { ...baseStyles, fontSize: '1rem', color: 'blue' };
         case 'image':
             return { ...baseStyles, width: '100%', maxWidth: '300px' };
         case 'columns':
@@ -283,11 +287,14 @@ function getDefaultStyles(type: ElementType): Record<string, string> {
 function getDefaultProps(type: ElementType): Record<string, any> {
     switch (type) {
         case 'image':
-            return { alt: 'Image description' };
+            return { alt: 'Image Name' };
         case 'list':
             return { ordered: false };
         case 'columns':
             return { columns: 2 };
+
+        case 'link':
+            return { url: 'https://example.com' }
         default:
             return {};
     }

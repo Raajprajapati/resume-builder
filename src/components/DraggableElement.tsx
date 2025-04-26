@@ -64,6 +64,8 @@ const DraggableElement: React.FC<DraggableElementProps> = ({
                 return <div className="p-4"><button className="px-4 py-2 bg-blue-500 text-white rounded">Button</button></div>;
             case 'divider':
                 return <div className="p-4"><hr /></div>;
+            case 'link':
+                return <a href='https:example.com'>example.com</a>;
             default:
                 return <div className="p-4">Element</div>;
         }
