@@ -1,14 +1,14 @@
-// src/App.jsx
-import { ResumeProvider } from './contexts/ResumeContext';
-import ResumeBuilder from './components/ResumeBuilder';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Editor from './components/Editor';
 
 function App() {
   return (
-    <ResumeProvider>
-      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 p-4 md:p-8">
-        <ResumeBuilder />
-      </div>
-    </ResumeProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Editor />} />
+      </Routes>
+    </Router>
   );
 }
 
