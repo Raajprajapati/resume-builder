@@ -2,6 +2,7 @@ import React from 'react';
 import { useDraggable } from '@dnd-kit/core';
 import { FiType, FiImage, FiColumns, FiList, FiActivity, FiMinus } from 'react-icons/fi';
 import useStore, { ElementType } from '../store/useStore';
+import { MdAdd } from 'react-icons/md';
 
 const ElementButton: React.FC<{
     type: ElementType,
@@ -19,10 +20,11 @@ const ElementButton: React.FC<{
             {...listeners}
             {...attributes}
             className="flex items-center p-3 mb-2 bg-white border border-gray-200 rounded-md cursor-move hover:border-indigo-300 hover:bg-indigo-50"
-            onClick={onClick}
+            
         >
             <div className="mr-3 text-gray-500">{icon}</div>
             <span>{label}</span>
+            <button onClick={onClick} className='btn shadow-2xs border-solid border ml-5 border-black-200 hover:border-indigo-300 hover:cursor-pointer'><MdAdd /></button>
         </div>
     );
 };
