@@ -15,6 +15,7 @@ const ElementStyles: React.FC<ElementStylesProps> = ({ element }) => {
     };
 
     const handlePropChange = (propName: string, value: any) => {
+        console.log(element)
         const updatedProps = { ...element.props, [propName]: value };
         updateElement(element.id, { props: updatedProps });
     };
